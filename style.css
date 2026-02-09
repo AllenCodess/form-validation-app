@@ -48,3 +48,15 @@ body {
 }
 
 /* Dynamic JS Classes */
+
+.error-border {
+  border-bottom: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin: 5px auto;
+  text-align: left;
+  width: 300px;
+}
