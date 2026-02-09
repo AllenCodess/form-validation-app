@@ -14,8 +14,6 @@ This app is a form validation project. It validates if the username, password, a
 - CSS
 - JAVASCRIPT
 
-##
-
-Features
+## Features
 
 - input validation
