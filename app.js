@@ -25,4 +25,19 @@ function validateForm(e) {
 
   // Check if an error is present
   let hasError = false;
+
+  if (username === "") {
+    alert("username cannot be empty");
+    hasError = true;
+  }
+
+  if (email === "") {
+    alert("email cannot be empty");
+    hasError = true;
+  }
+
+  if (password === "") {
+    alert("password cannot be empty");
+    hasError = true;
+  }
 }
