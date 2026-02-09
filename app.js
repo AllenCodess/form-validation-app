@@ -1,10 +1,28 @@
 // dom elements
 
 const btnEl = document.querySelector(".btn");
+const formEl = document.querySelector("#contact-form");
 const usernameEl = document.querySelector("#username-input");
 const emailEl = document.querySelector("#email-input");
 const passwordEl = document.querySelector("#password-input");
-btnEl.addEventListener("click", function (e) {
+
+// Regular Expression (Regex)
+const usernamePattern = /[^a-zA-Z0-9]+$/;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex = /^.{8,}$/; // makes sure pw is atleast 8 characters long
+
+// Event Listeners
+formEl.addEventListener("submit", validateForm);
+
+//functions
+function validateForm(e) {
   e.preventDefault();
-  console.log("btn working");
-});
+
+  // ignore white spaces
+  const username = usernameEl.value.trim();
+  const email = emailEl.value.trim();
+  const password = passwordEl.value.trim();
+
+  // Check if an error is present
+  let hasError = false;
+}
