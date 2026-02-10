@@ -6,6 +6,11 @@ const usernameEl = document.querySelector("#username-input");
 const emailEl = document.querySelector("#email-input");
 const passwordEl = document.querySelector("#password-input");
 
+// error messages divs
+const usernameErrorEl = document.querySelector("#username-error");
+const emailErrorEl = document.querySelector("#email-error");
+const passwordErrorEl = document.querySelector("#password-error");
+
 // Regular Expression (Regex)
 const usernamePattern = /^[a-zA-Z0-9]{3,15}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,26 +32,26 @@ function validateForm(e) {
   let hasError = false;
 
   if (username === "") {
-    alert("username cannot be empty");
+    addError(usernameEl, usernameErrorEl, "Username is required");
     hasError = true;
   } else if (!usernamePattern.test(username)) {
-    alert("username doesnt match regex");
+    addError(usernameEl, usernameErrorEl, "Username must be 3-15 characters long");
     hasError = true;
   }
 
   if (email === "") {
-    alert("email cannot be empty");
+    addError(emailEl, emailErrorEl, "Email is required");
     hasError = true;
   } else if (!emailPattern.test(email)) {
-    alert("email doesnt match regex");
+    addError(emailEl, emailErrorEl, "Email must contain @ and domain name");
     hasError = true;
   }
 
   if (password === "") {
-    alert("password cannot be empty");
+    addError(passwordEl, passwordErrorEl, "Password is required");
     hasError = true;
   } else if (!passwordRegex.test(password)) {
-    alert("password doesnt match regex");
+    addError(passwordEl, passwordErrorEl, "Password must be atleast 8 characters.");
     hasError = true;
   }
 
@@ -54,4 +59,10 @@ function validateForm(e) {
   if (!hasError) {
     alert("form submitted correctly");
   }
+}
+
+function addError(input, errorElement, message) {
+  input.classList.add("error-border");
+  errorElement.classList.add("error-message");
+  errorElement.textContent = message;
 }
