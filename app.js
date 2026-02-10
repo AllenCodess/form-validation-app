@@ -28,6 +28,10 @@ function validateForm(e) {
   const email = emailEl.value.trim();
   const password = passwordEl.value.trim();
 
+  // clears errors after successful submit
+  clearError(usernameEl, usernameErrorEl);
+  clearError(emailEl, emailErrorEl);
+  clearError(passwordEl, passwordErrorEl);
   // Check if an error is present
   let hasError = false;
 
@@ -65,4 +69,9 @@ function addError(input, errorElement, message) {
   input.classList.add("error-border");
   errorElement.classList.add("error-message");
   errorElement.textContent = message;
+}
+
+function clearError(input, errorElement) {
+  input.classList.remove("error-border");
+  errorElement.textContent = "";
 }
